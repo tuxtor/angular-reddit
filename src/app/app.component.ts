@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-reddit';
+
+  //Callback del evento
+  agregarEnlace(newTitle: HTMLInputElement, newLink: HTMLInputElement) {
+    console.log(`Agregando el enlace ${newTitle.value} en la url ${newLink.value}`);
+    return false;
+  }
 }

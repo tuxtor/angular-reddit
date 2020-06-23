@@ -1,0 +1,26 @@
+<div class="four wide column center aligned votes">
+    <!-- votos -->
+    <div class="ui static">
+        <div class="value">
+            {{article.votes}}
+        </div>
+        <div class="label">
+            Votos
+        </div>
+    </div>
+</div>
+
+<!-- articulo -->
+<div class="twelve wide column">
+    <a class="ui large header" href="{{ article.link }}">
+        {{article.title}}
+    </a>
+    <ul class="ui big horizontal list voters">
+        <li class="item">
+            <a (click)="upvote()" >(+) positivo</a>
+        </li>
+        <li class="item">
+            <a (click)="downvote()">(-) negativo</a>
+        </li>
+    </ul>
+</div>

@@ -2,15 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
+  declarations: [//Candidato a inyeccion de dependencias
+    AppComponent, ArticleComponent
   ],
-  imports: [
+  imports: [ //Importar funcionalidad desde bibliotecas
     BrowserModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [], //Servicios, eventos y fabricas de objetos
+  bootstrap: [AppComponent] //Sector de arranque
 })
 export class AppModule { }
