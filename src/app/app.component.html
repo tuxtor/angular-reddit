@@ -15,6 +15,9 @@
         Enviar enlace
     </button>
 </form>
+<p>Status: {{statusMessage}}</p>
 <div class="ui grid posts">
-    <app-article></app-article>
+    <app-article *ngFor="let myArticle of sortedArticles()"
+        [article]="myArticle"
+        (selectEvent)="receptorDelEvento($event)" ></app-article>
 </div>

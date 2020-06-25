@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, EventEmitter, Output } from '@angular/core';
 import { Article } from './article.model';
 
 @Component({
@@ -10,10 +10,11 @@ export class ArticleComponent implements OnInit {
 
   //Binding propiedades desde el html
   @HostBinding('attr.class') cssClass = 'row';
-  article: Article;
+  @Input() article: Article;
+  @Output() selectEvent: EventEmitter<string>;
 
   constructor() {
-    this.article = new Article(0, "Academik", "https://academik.io");
+    this.selectEvent = new EventEmitter();
   }
 
   ngOnInit() {
@@ -21,10 +22,16 @@ export class ArticleComponent implements OnInit {
 
   upvote() {
     this.article.upvote();
+    this.selectEvent.emit(`${this.article.title} y subí el punteo `);
   }
 
   downvote() {
     this.article.downvote();
+    this.selectEvent.emit(`${this.article.title} bajé el punteo `);
+  }
+
+  titleClick() {
+    window.alert('Hiciste click en el titulo ' + this.article.title)
   }
 
 }
