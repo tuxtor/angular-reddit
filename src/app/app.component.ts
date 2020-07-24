@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ReflectiveInjector } from '@angular/core';
 import { Article } from './article/article.model';
+import { HolaService } from './services/HolaService';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ export class AppComponent {
   articles: Article[];
   statusMessage: string;
 
-  constructor() {
+  // Inyeccion por constructor
+  constructor(private holaService: HolaService) {
     this.articles = [new Article(0, 'TypeScript', 'https://www.typescriptlang.org/'),
       new Article(0, 'Angular', 'https://angular.io'),
       new Article(0, 'JavaScript', 'https://developer.mozilla.org/es/docs/Web/JavaScript')];
@@ -36,5 +38,10 @@ export class AppComponent {
 
   receptorDelEvento(info: string) {
     this.statusMessage = info;
+  }
+
+  ejecutarSaludar() {
+    console.log( this.holaService.saludar('Victor'))
+    return false;
   }
 }

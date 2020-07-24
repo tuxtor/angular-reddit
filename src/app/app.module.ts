@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
+import { HolaService } from './services/HolaService';
 
 @NgModule({
   declarations: [//Candidato a inyeccion de dependencias
@@ -11,7 +12,9 @@ import { ArticleComponent } from './article/article.component';
   imports: [ //Importar funcionalidad desde bibliotecas
     BrowserModule
   ],
-  providers: [], //Servicios, eventos y fabricas de objetos
+  providers: [
+    HolaService //Singleton
+  ], //Servicios, eventos y fabricas de objetos
   bootstrap: [AppComponent] //Sector de arranque
 })
 export class AppModule { }
