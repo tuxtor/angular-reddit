@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ReflectiveInjector } from '@angular/core';
 import { Article } from './article/article.model';
-import { Greeter } from './service/greeter';
-import { HolaService } from './service/hola.service';
-import { HelloService } from './service/hello.service';
+
+import { HolaService } from './services/HolaService';
+
 
 @Component({
   selector: 'app-root',
@@ -13,14 +13,13 @@ export class AppComponent {
   title = 'angular-reddit';
   articles: Article[];
   statusMessage: string;
-  greeter: Greeter;
 
-  constructor() {
+  // Inyeccion por constructor
+  constructor(private holaService: HolaService) {
     this.articles = [new Article(0, 'TypeScript', 'https://www.typescriptlang.org/'),
       new Article(0, 'Angular', 'https://angular.io'),
       new Article(0, 'JavaScript', 'https://developer.mozilla.org/es/docs/Web/JavaScript')];
 
-    this.greeter = new HelloService();
   }
 
   //Callback del evento
@@ -44,9 +43,8 @@ export class AppComponent {
     this.statusMessage = info;
   }
 
-  execGreeter() {
-    const saludo = this.greeter.doHello('Prueba');
-    console.log(saludo);
+  ejecutarSaludar() {
+    console.log( this.holaService.saludar('Victor'));
     return false;
   }
 }
