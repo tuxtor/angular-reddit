@@ -1,17 +1,21 @@
 <div class="ui raised segment">
   <h2 class="ui header"> Demo Advanced form </h2>
 
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" >
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)"
+    [class.error]="!myForm.valid && myForm.touched">
     <div class="field">
       <label>Person Name</label>
       <input type="text" id="personNameInput" placeholder="Ingrese su nombre aca . . ."
-      name="personName" [formControl]="myForm.controls['personName']">
+      name="personName" [formControl]="myForm.controls['personName']"
+      [class.error]="!personName.valid && personName.touched">
+
+      <div *ngIf="!personName.valid" class="ui error message">personName es invalido</div>
+      <div *ngIf="personName.hasError('required')" class="ui error message">personName es requerido</div>
+
+
     </div>
-    <button *ngIf="myForm.valid" type="submit" class="ui button">Enviar</button>
+    <div *ngIf="!myForm.valid" class="ui error message">Formulario es invalido</div>
+    <button type="submit" class="ui button">Enviar</button>
 
   </form>
-
-  <p>{{status}}</p><br>
-  <p> El formulario es valido: {{myForm.valid}} </p><br>
-  <p> El nombre es valido: {{personName.valid}} </p><br>
 </div>
