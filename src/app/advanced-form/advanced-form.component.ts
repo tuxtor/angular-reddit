@@ -14,8 +14,12 @@ export class AdvancedFormComponent implements OnInit {
   constructor(fb: FormBuilder) {
     this.myForm = fb.group(
       {
-        'personName': ['Java Duke', Validators.required]
+        'personName': ['Java Duke', Validators.compose([Validators.required, this.linuxValidator])]
       }
+    );
+
+    this.myForm.valueChanges.subscribe( (form: any) => {
+      console.log('Formulario cambio a', form); }
     );
   }
 
@@ -27,5 +31,12 @@ export class AdvancedFormComponent implements OnInit {
     this.status = "Recibi: " + JSON.stringify(value);
     return;
   }
+
+  linuxValidator(control: FormControl) {
+    if (!control.value.match('Tux')) {
+      return {invalidName: true};
+    }
+  }
+  
 
 }

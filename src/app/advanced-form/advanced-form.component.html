@@ -11,6 +11,7 @@
 
       <div *ngIf="!myForm.controls['personName'].valid" class="ui error message">personName es invalido</div>
       <div *ngIf="myForm.controls['personName'].hasError('required')" class="ui error message">personName es requerido</div>
+      <div *ngIf="myForm.controls['personName'].hasError('invalidName')" class="ui error message">nombre debe ser Tux</div>
 
 
     </div>
