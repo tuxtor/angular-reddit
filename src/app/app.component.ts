@@ -1,7 +1,9 @@
-import { Component, ReflectiveInjector } from '@angular/core';
+import { Component, ReflectiveInjector, Inject } from '@angular/core';
 import { Article } from './article/article.model';
 
 import { HolaService } from './services/HolaService';
+import { Saludador } from './services/saludador';
+import { ServicioPersonalizadoService } from './services/servicio-personalizado.service';
 
 
 @Component({
@@ -13,13 +15,14 @@ export class AppComponent {
   title = 'angular-reddit';
   articles: Article[];
   statusMessage: string;
+  tituloInyectado: string;
 
   // Inyeccion por constructor
-  constructor(private holaService: HolaService) {
+  constructor(@Inject('ServicioPersonalizado') private servicioPersonalizado: ServicioPersonalizadoService
+  ) {
     this.articles = [new Article(0, 'TypeScript', 'https://www.typescriptlang.org/'),
       new Article(0, 'Angular', 'https://angular.io'),
       new Article(0, 'JavaScript', 'https://developer.mozilla.org/es/docs/Web/JavaScript')];
-
   }
 
   //Callback del evento
@@ -44,7 +47,7 @@ export class AppComponent {
   }
 
   ejecutarSaludar() {
-    console.log( this.holaService.saludar('Victor'));
+    console.log( this.servicioPersonalizado.crearCadenaPersonalizada('Victor'));
     return false;
   }
 }

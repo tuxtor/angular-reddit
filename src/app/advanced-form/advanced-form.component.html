@@ -1,0 +1,17 @@
+<div class="ui raised segment">
+  <h2 class="ui header"> Demo Advanced form </h2>
+
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" >
+    <div class="field">
+      <label>Person Name</label>
+      <input type="text" id="personNameInput" placeholder="Ingrese su nombre aca . . ."
+      name="personName" [formControl]="myForm.controls['personName']">
+    </div>
+    <button *ngIf="myForm.valid" type="submit" class="ui button">Enviar</button>
+
+  </form>
+
+  <p>{{status}}</p><br>
+  <p> El formulario es valido: {{myForm.valid}} </p><br>
+  <p> El nombre es valido: {{personName.valid}} </p><br>
+</div>

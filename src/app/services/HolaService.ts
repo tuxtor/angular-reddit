@@ -5,7 +5,13 @@ import { Injectable } from '@angular/core';
 })
 export class HolaService {
 
+  cuenta: number = 0;
+
+  constructor(){
+    console.log("Iniciando instancia de Hola service")
+  }
+
   saludar(nombre: string) {
-    return `Hola ${nombre}`
+    return `Hola ${nombre} ${this.cuenta++}`
   }
 }

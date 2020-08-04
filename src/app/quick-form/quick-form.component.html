@@ -1,0 +1,21 @@
+<div class="ui raised segment">
+  <h2 class="ui header"> Demo Quick form </h2>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)" >
+    <div class="field">
+      <label>Person Name</label>
+      <input type="text" id="personNameInput" placeholder="Angular"
+      name="personName" ngModel>
+    </div>
+    <div class="field">
+      <label>Second Name</label>
+      <input type="text" id="secondNameInput" placeholder="Rulz"
+      name="secondName" ngModel>
+    </div>
+    <button type="submit" class="ui button">Enviar</button>
+
+  </form>
+
+  <p>{{status}}</p>
+
+</div>
