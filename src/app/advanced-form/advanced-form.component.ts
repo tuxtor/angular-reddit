@@ -10,7 +10,6 @@ export class AdvancedFormComponent implements OnInit {
 
   myForm: FormGroup;
   status: String = "";
-  personName: AbstractControl;
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group(
@@ -18,7 +17,6 @@ export class AdvancedFormComponent implements OnInit {
         'personName': ['Java Duke', Validators.required]
       }
     );
-    this.personName = this.myForm.controls['personName'];
   }
 
   ngOnInit() {

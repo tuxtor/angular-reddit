@@ -7,10 +7,10 @@
       <label>Person Name</label>
       <input type="text" id="personNameInput" placeholder="Ingrese su nombre aca . . ."
       name="personName" [formControl]="myForm.controls['personName']"
-      [class.error]="!personName.valid && personName.touched">
+      [class.error]="!myForm.controls['personName'].valid && myForm.controls['personName'].touched">
 
-      <div *ngIf="!personName.valid" class="ui error message">personName es invalido</div>
-      <div *ngIf="personName.hasError('required')" class="ui error message">personName es requerido</div>
+      <div *ngIf="!myForm.controls['personName'].valid" class="ui error message">personName es invalido</div>
+      <div *ngIf="myForm.controls['personName'].hasError('required')" class="ui error message">personName es requerido</div>
 
 
     </div>
