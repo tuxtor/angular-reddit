@@ -28,7 +28,6 @@ export class AdvancedFormComponent implements OnInit {
 
   onSubmit(value: any) {
     console.log(value)
-    this.status = "Recibi: " + JSON.stringify(value);
     return;
   }
 

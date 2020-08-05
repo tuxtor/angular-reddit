@@ -1,7 +1,7 @@
 <div class="ui raised segment">
   <h2 class="ui header"> Demo Advanced form </h2>
 
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)"
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)"
     [class.error]="!myForm.valid && myForm.touched">
     <div class="field">
       <label>Person Name</label>

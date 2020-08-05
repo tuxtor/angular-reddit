@@ -11,10 +11,11 @@ import { Saludador } from './services/saludador';
 import { ServicioPersonalizadoService } from './services/servicio-personalizado.service';
 import { QuickFormComponent } from './quick-form/quick-form.component';
 import { AdvancedFormComponent } from './advanced-form/advanced-form.component';
+import { FastFormComponent } from './fast-form/fast-form.component';
 
 @NgModule({
   declarations: [//Candidato a inyeccion de dependencias
-    AppComponent, ArticleComponent, QuickFormComponent, AdvancedFormComponent
+    AppComponent, ArticleComponent, QuickFormComponent, AdvancedFormComponent, FastFormComponent
   ],
   imports: [ //Importar funcionalidad desde bibliotecas
     BrowserModule,
