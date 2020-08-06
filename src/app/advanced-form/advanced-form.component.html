@@ -1,7 +1,8 @@
 <div class="ui raised segment">
   <h2 class="ui header"> Demo Advanced form </h2>
 
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" >
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)"
+    [class.error]="!myForm.valid && myForm.touched">
     <div class="field">
       <label>Person Name</label>
       <input type="text" id="personNameInput" placeholder="Ingrese su nombre aca . . ."
@@ -17,7 +18,8 @@
 
 
     </div>
-    <button *ngIf="myForm.valid" type="submit" class="ui button">Enviar</button>
+    <div *ngIf="!myForm.valid" class="ui error message">Formulario es invalido</div>
+    <button type="submit" class="ui button">Enviar</button>
 
   </form>
   <p>Estado: {{status}}</p>
