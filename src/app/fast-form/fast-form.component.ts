@@ -8,22 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class FastFormComponent implements OnInit {
 
   personName: string;
-  submitted: boolean;
+  status: string;
 
   constructor() {
-    //this.personName = "Marco Polo";
-  }
+
+   }
 
   ngOnInit() {
   }
 
+  //No estoy enviando informacion a la reaccion, solo invoco un evento
   onSubmit() {
-    this.submitted = true;
-    console.log("Actual person name " + this.personName )
-  }
-
-  doSubmit() {
-    this.personName = 'Andres Manuel Lopez Obrador';
+    this.status = "Valor actual de person Name es " + this.personName;
     return;
   }
+
+
 }

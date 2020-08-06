@@ -14,13 +14,21 @@ export class AdvancedFormComponent implements OnInit {
   constructor(fb: FormBuilder) {
     this.myForm = fb.group(
       {
-        'personName': ['Java Duke', Validators.compose([Validators.required, this.linuxValidator])]
+        'personName': ['', Validators.compose([Validators.required, this.linuxValidator ])]
       }
     );
 
-    this.myForm.valueChanges.subscribe( (form: any) => {
-      console.log('Formulario cambio a', form); }
-    );
+    this.myForm.controls.personName
+      .valueChanges //Observable
+      .subscribe( (control: any) => {
+        this.status = JSON.stringify(control)
+      });
+
+    this.myForm.controls.personName
+      .valueChanges //Observable
+      .subscribe( (control: any) => {
+        console.log('El usuario interactuo')
+      });
   }
 
   ngOnInit() {
@@ -32,10 +40,11 @@ export class AdvancedFormComponent implements OnInit {
   }
 
   linuxValidator(control: FormControl) {
-    if (!control.value.match('Tux')) {
-      return {invalidName: true};
-    }
+
+    let valido = control.value.match('Tux');
+
+    return { invalidName : !valido};
+
   }
-  
 
 }

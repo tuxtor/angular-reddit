@@ -1,22 +1,18 @@
 <div class="ui raised segment">
-    <h2 class="ui header"> Demo Fast form </h2>
-  
-    <form #myForm="ngForm" (ngSubmit)="onSubmit()">
-      <div class="field">
-        <label>Person Name</label>
-        <input type="text" id="personNameInput" placeholder="Ingrese su nombre aca . . ."
-        name="personName" [(ngModel)]="personName"
-        required #person="ngModel">
+  <h2 class="ui header"> Demo Fast form </h2>
 
-        <div *ngIf="person.pristine" class="ui error message">Person no ha sido modificado</div>
+  <form >
+    <div class="field">
+      <label>Person Name</label>
+      <input type="text" id="personNameInput" placeholder="Ingrese su nombre aca . . ."
+      name="personName" [(ngModel)]="personName" #person="ngModel" required maxlength="5">
 
-      </div>
-      <p>Es pristine: {{person.pristine}}</p>
-      <button type="submit" class="ui button" (click)="doSubmit()" >Enviar</button>
-  
-    </form>
-    <div class="ui info message">
-        The person name is: {{personName}}
+      <div *ngIf="person.dirty && !person.valid" class="ui error message" >El campo es obligatorio</div>
+
     </div>
-  </div>
-  
+    <button type="submit" class="ui button" (click)="onSubmit()">Enviar</button>
+
+  </form>
+  <p>Estado: {{status}}</p>
+
+</div>

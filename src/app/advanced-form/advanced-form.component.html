@@ -6,12 +6,15 @@
     <div class="field">
       <label>Person Name</label>
       <input type="text" id="personNameInput" placeholder="Ingrese su nombre aca . . ."
-      name="personName" [formControl]="myForm.controls['personName']"
-      [class.error]="!myForm.controls['personName'].valid && myForm.controls['personName'].touched">
+      name="personName" formControlName="personName"
+      [class.error] = "myForm.get('personName').valid"
+      >
 
-      <div *ngIf="!myForm.controls['personName'].valid" class="ui error message">personName es invalido</div>
-      <div *ngIf="myForm.controls['personName'].hasError('required')" class="ui error message">personName es requerido</div>
-      <div *ngIf="myForm.controls['personName'].hasError('invalidName')" class="ui error message">nombre debe ser Tux</div>
+      <div *ngIf="myForm.get('personName').dirty && myForm.get('personName').hasError('required')" class="ui error message" >
+      El campo es obligatorio</div>
+
+      <div *ngIf="myForm.get('personName').dirty && myForm.get('personName').hasError('invalidName')" class="ui error message" >
+      El nombre de la mascota no es el correcto </div>
 
 
     </div>
@@ -19,4 +22,6 @@
     <button type="submit" class="ui button">Enviar</button>
 
   </form>
+  <p>Estado: {{status}}</p>
+
 </div>
