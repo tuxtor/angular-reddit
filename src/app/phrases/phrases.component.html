@@ -1,0 +1,27 @@
+
+<form class="ui large form segment">
+    <h3 class="ui header">Agregar una frase</h3>
+    <div class="field">
+        <label for="title">Author:</label>
+        <input name="title" id="title" #netAuthor>
+    </div>
+    <div class="field">
+        <label for="link">Frase:</label>
+        <input name="link" id="link" #newPhrase>
+    </div>
+
+    <!-- cotrol que dispara eventos onClick -->
+    <button (click)="agregarEnlace(newTitle, newLink)"
+        class="ui positive right floated button" >
+        Enviar enlace
+    </button>
+    <button (click)="ejecutarSaludar()"
+        class="ui positive right floated button" >
+        Saludar
+    </button>
+</form>
+<div class="ui grid posts">
+    <app-article *ngFor="let myArticle of sortedArticles()"
+        [article]="myArticle"
+        (selectEvent)="receptorDelEvento($event)" ></app-article>
+</div>

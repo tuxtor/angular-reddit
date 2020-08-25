@@ -1,0 +1,7 @@
+<div>
+    <button type="submit" class="ui button" (click)="actualizar()" >Actualizar frases</button>
+</div>
+<div class="ui grid posts">
+    <app-phrase-card *ngFor="let phrase of phraseList"
+        [phrase]="phrase"></app-phrase-card>
+</div>

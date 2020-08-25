@@ -1,31 +1,4 @@
 <p>{{tituloInyectado}} </p>
 
-<app-fast-form></app-fast-form>
-
-<form class="ui large form segment">
-    <h3 class="ui header">Agregar un enlace</h3>
-    <div class="field">
-        <label for="title">Titulo:</label>
-        <input name="title" id="title" #newTitle>
-    </div>
-    <div class="field">
-        <label for="link">Enlace:</label>
-        <input name="link" id="link" #newLink>
-    </div>
-
-    <!-- cotrol que dispara eventos onClick -->
-    <button (click)="agregarEnlace(newTitle, newLink)"
-        class="ui positive right floated button" >
-        Enviar enlace
-    </button>
-    <button (click)="ejecutarSaludar()"
-        class="ui positive right floated button" >
-        Saludar
-    </button>
-</form>
-<p>Status: {{statusMessage}}</p>
-<div class="ui grid posts">
-    <app-article *ngFor="let myArticle of sortedArticles()"
-        [article]="myArticle"
-        (selectEvent)="receptorDelEvento($event)" ></app-article>
-</div>
+<app-phrase-form></app-phrase-form>
+<app-phrase-list></app-phrase-list>

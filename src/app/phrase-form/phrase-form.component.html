@@ -1,0 +1,20 @@
+<form [formGroup]="myForm"
+	(ngSubmit)="onSubmit(myForm.value)" class="ui form">
+	<div class="field">
+		<label for="phraseIdInput">Phrase Id</label>
+		<input type="number" id="phraseIdInput" placeholder="phraseId"
+			[formControl]="myForm.controls['phraseId']"  readonly>
+    </div>
+	<div class="field">
+		<label for="authorInput">Author</label>
+		<input type="text" id="authorInput" placeholder="Author"
+			[formControl]="myForm.controls['author']" >
+    </div>
+    <div class="field">
+		<label for="phraseInput">Phrase</label>
+		<input type="text" id="phraseInput" placeholder="Phrase"
+			[formControl]="myForm.controls['phrase']" >
+	</div>
+    <button type="submit" class="ui button">Grabar</button>
+    <button type="button" class="ui button" (click)="delete(myForm.value)">Eliminar</button>
+</form>
