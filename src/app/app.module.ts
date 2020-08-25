@@ -31,6 +31,8 @@ import { MessageService } from './service/message.service';
     HttpClientModule
   ],
   providers: [
+    PhraseApiService,
+    MessageService,
     {provide: 'ServicioEnIngles', useClass: Servicio1Service},
     {provide: 'ServicioEnEspanol', useClass: Servicio2Service},
     {provide: 'Titulo', useValue: 'Angular Rocks!'},
