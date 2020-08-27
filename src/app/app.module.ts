@@ -19,16 +19,21 @@ import { PhraseCardComponent } from './phrase-card/phrase-card.component';
 import { PhraseListComponent } from './phrase-list/phrase-list.component';
 import { PhraseFormComponent } from './phrase-form/phrase-form.component';
 import { MessageService } from './service/message.service';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [//Candidato a inyeccion de dependencias
-    AppComponent, ArticleComponent, QuickFormComponent, AdvancedFormComponent, FastFormComponent, PhrasesComponent, PhraseCardComponent, PhraseListComponent, PhraseFormComponent
+    AppComponent, ArticleComponent, QuickFormComponent, AdvancedFormComponent, FastFormComponent, PhrasesComponent, PhraseCardComponent, PhraseListComponent, PhraseFormComponent, HomeComponent, ContactComponent, AboutComponent
   ],
   imports: [ //Importar funcionalidad desde bibliotecas
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     PhraseApiService,
