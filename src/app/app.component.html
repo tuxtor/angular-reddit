@@ -1,18 +1,22 @@
-
-<div class="page-header">
-    <div class="container">
-    <h1>Router Sample</h1>
-        <div class="navLinks">
-            <a [routerLink]="['/home']">Home</a>
-            <a [routerLink]="['/about']">About Us</a>
-            <a [routerLink]="['/contact']">Contact Us</a>
-        </div>
+<div class="ui menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+        <img class="logo" src="/assets/images/angularts.png">
+        TS Rocks
+      </a>
+      <div class="header item borderless">
+        <h1 class="ui header">
+          Angular Simple Reddit
+          <div class="navLinks">
+            <a [routerLink]="['/home']" > Home </a> |
+            <a [routerLink]="['/about/holamundo']" > About </a> |
+            <a [routerLink]="['/contact']" > Contact </a>
+         </div>
+        </h1>
+      </div>
     </div>
-</div>
+  </div>
 
-<div id="content">
-    <div class="container">
-        <router-outlet></router-outlet>
-    </div>
-</div>
-    
+  <div class="ui main text container">
+    <router-outlet></router-outlet>
+  </div>
